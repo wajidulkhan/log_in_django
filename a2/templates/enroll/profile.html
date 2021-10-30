@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+    <h1>Welcome {{name}}</h1> 
+    {% if user != None %}
+            {% for users in user %} 
+               <a href="{% url 'userprofile' users.id %}">{{users}}</a><br><br>  
+            {% endfor %} 
+        {% endif %}
+        <hr> 
+    <form action="" method="POST" novalidate> 
+        {% csrf_token %} 
+        {% for fm in form  %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br> 
+        {% endfor %}
+
+        <input type="submit" value="update"> 
+    </form>
+
+    <a href="{% url 'logout' %}">logout</a>  
+    <a href="{% url 'change' %}">change password</a>  
+
+</body>
+</html>
