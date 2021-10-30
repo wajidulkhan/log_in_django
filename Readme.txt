@@ -1,0 +1,1 @@
+This is basic login page create in django.
